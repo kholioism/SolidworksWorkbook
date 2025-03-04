@@ -5,7 +5,7 @@ This repository contains exercises from the Design Workbook Using Solidworks 202
 ### Opening an Exercise
 1. Clone this repository:
    ```sh
-   git clone https://github.com/your-username/SolidWorks-Exercises.git
+   git clone https://github.com/kholioism/SolidworksWorkbook.git
    ```
 2. Open SolidWorks.
 3. Navigate to the `Exercises` folder and open the corresponding `.sldprt` or `.sldasm` file.
