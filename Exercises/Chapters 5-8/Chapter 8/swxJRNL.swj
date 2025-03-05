@@ -1,0 +1,58 @@
+' ******************************************************************************
+' swxJRNL.swj - journal recorded on 03/05/25 by khalid
+' *****************************************************************************
+Dim swApp As Object
+
+Dim Part As Object
+Dim boolstatus As Boolean
+Dim longstatus As Long, longwarnings As Long
+
+Sub main()
+
+Set swApp = Application.SldWorks
+
+swApp.ActivateDoc2 "Exploded Pulley Assembly.SLDASM", False, longstatus
+Set Part = swApp.ActiveDoc
+Set Part = swApp.ActiveDoc
+Dim myModelView As Object
+Set myModelView = Part.ActiveView
+myModelView.FrameLeft = 0
+myModelView.FrameTop = 0
+Set myModelView = Part.ActiveView
+myModelView.FrameState = swWindowState_e.swWindowMaximized
+Set myModelView = Part.ActiveView
+myModelView.FrameState = swWindowState_e.swWindowMaximized
+Dim motionStudyMgr As Object
+Set motionStudyMgr = Part.Extension.GetMotionStudyManager()
+boolstatus = motionStudyMgr.ActivateMotionStudy("Motion Study 1")
+Set motionStudyMgr = Part.Extension.GetMotionStudyManager()
+boolstatus = motionStudyMgr.ActivateMotionStudy("Motion Study 2")
+Set motionStudyMgr = Part.Extension.GetMotionStudyManager()
+boolstatus = motionStudyMgr.ActivateMotionStudy("Motion Study 2")
+Set motionStudyMgr = Part.Extension.GetMotionStudyManager()
+boolstatus = motionStudyMgr.ActivateMotionStudy("Motion Study 1")
+Set motionStudyMgr = Part.Extension.GetMotionStudyManager()
+boolstatus = motionStudyMgr.ActivateMotionStudy("Motion Study 1")
+Set motionStudyMgr = Part.Extension.GetMotionStudyManager()
+Dim myMotionStudy As Object
+Set myMotionStudy = motionStudyMgr.GetMotionStudy("Motion Study 1")
+boolstatus = myMotionStudy.Calculate()
+Set motionStudyMgr = Part.Extension.GetMotionStudyManager()
+Set myMotionStudy = motionStudyMgr.GetMotionStudy("Motion Study 1")
+boolstatus = myMotionStudy.Stop()
+boolstatus = myMotionStudy.SetTime(2.125)
+Set motionStudyMgr = Part.Extension.GetMotionStudyManager()
+Set myMotionStudy = motionStudyMgr.GetMotionStudy("Motion Study 1")
+boolstatus = myMotionStudy.SetTime(2.142857142857142794)
+' MSGBOX
+' Save changes to Exploded Pulley Assembly.SLDASM?
+
+
+' Save
+Dim swErrors As Long
+Dim swWarnings As Long
+boolstatus = Part.Save3(1, swErrors, swWarnings)
+Set myModelView = Part.ActiveView
+myModelView.FrameState = swWindowState_e.swWindowMaximized
+swApp.ExitApp
+End Sub
